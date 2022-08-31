@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+    <title>{{title}}</title>
+</head>
+<body>
+{% block header %}
+<div id="header">
+
+
+    header</div>
+{% endblock header %}
+{% block map %}
+<div id="map">map</div>
+{% endblock map %}
+{% block panel %}
+<div id="panel">panel</div>
+{% endblock panel %}
+{% block footer %}
+<div id="footer">&copy; 2022 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</div>
+{% endblock footer %}
+</body>
+</html>
