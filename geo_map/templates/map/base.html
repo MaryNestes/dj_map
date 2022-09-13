@@ -1,26 +1,79 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-   <meta charset="utf-8" />
-        <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
     <title>{{title}}</title>
+
+    <title>Leaflet</title>
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
+
+    <title>MapBox</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+
+    <title>ForJSON</title>
+    <link rel="stylesheet" href= "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
+
+    <title>ForMousePosition</title>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-mouse-position@1.2.0/src/L.Control.MousePosition.min.js"></script>
+
+    <title>Tools</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{% static 'js/leaflet.measure.js' %}"></script>
 </head>
-<body>
+<body onload="current_date();">
 {% block header %}
-<div id="header">
-
-
-    header</div>
+    <div id="header"></div>
 {% endblock header %}
 {% block map %}
-<div id="map">map</div>
+    <div id="map"></div>
 {% endblock map %}
 {% block panel %}
-<div id="panel">panel</div>
+<!--Боковая панель-->
+    <input type="checkbox" id="side-checkbox" />
+    <div class="side-panel">
+        <div class="side-title">Выдвижная панель:</div>
+        <p>Информация в панеле</p>
+        Отобразить населенные пункты:  <input type="checkbox" id="towns"/>
+        <div>
+            <input id = "date_pick" type="date"/>
+        </div>
+    </div>
+    <div class="side-button-1-wr">
+        <label class="side-button-1" for="side-checkbox">
+            <div class="side-b side-open"><i class='bx bx-menu' ></i></box-icon></div>
+            <div class="side-b side-close"><i class='bx bx-x' ></i></box-icon></div>
+        </label>
+    </div>
+
+<!--Панель для выбора подложки-->
+    <input type="checkbox" id="side-checkbox-2" />
+    <div class="side-panel-2">
+        <p>Информация в панеле</p>
+        <button onclick="get_satellite_map()"><img  width="50" src="static/images/satellite.png" alt="Satellite"></button>
+        <button onclick="get_scheme_map()"><img width="50" src="static/images/scheme.png" alt="Scheme"></button>
+        <button onclick="clear_map()"><img width="50" src="static/images/cross.png" alt="Clear"></button>
+    </div>
+    <div class="map-selector">
+        <label class="side-button-1" for="side-checkbox-2">
+            <div class="side-b side-open"><i class='bx bx-menu' ></i></box-icon></div>
+            <div class="side-b side-close"><i class='bx bx-x' ></i></box-icon></div>
+        </label>
+    </div>
 {% endblock panel %}
+
 {% block footer %}
-<div id="footer">&copy; 2022 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</div>
+    <div id="footer"></div>
 {% endblock footer %}
+    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/requests.js' %}"></script>
+    <script src="{% static 'js/panel.js' %}"></script>
 </body>
 </html>
