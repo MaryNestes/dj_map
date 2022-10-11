@@ -1,13 +1,39 @@
 html, body {
     height: 100%;
     margin: 0;
-
 }
 #map {
-    width: 100%;
-    height: 100%;
+    top:48px;
+    width: 49.85%;
+    height: 894px;
     z-index: 100;
+    float: left;
 }
+#mapPolar {
+    top:48px;
+    width: 100%;
+    height: 942px;
+    z-index: 100;
+    float: left;
+}
+#map2 {
+    top:48px;
+    width: 49.85%;
+    height: 894px;
+    z-index: 100;
+    float: left;
+}
+#border{
+    width: 0.3%;
+    top:48px;
+    height: 942px;
+    float: left;
+    background-color: #000000;
+}
+.clear {
+    clear: left; /* Отмена обтекания */
+   }
+
 
 
 #side-checkbox-2 {
@@ -16,7 +42,7 @@ html, body {
 .side-panel-2 {
     position: fixed;
     z-index: 999998;
-    top: 50px;
+    top: 150px;
     right: -360px;
     background: #337AB7;
     transition: all 0.5s;
@@ -30,7 +56,7 @@ html, body {
     text-align: center; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
     z-index: 999999;
     right: 10px;
-    top: 50px;
+    top: 150px;
     position: fixed;
 }
 #side-checkbox-2:checked + .side-panel-2 + .map-selector .side-button-1 .side-open {

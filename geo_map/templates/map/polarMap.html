@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PolarMap</title>
+        <link rel="stylesheet" href="{% static 'polarmap.js-1.2.1/css/leaflet.css' %}" />
+        <link rel="stylesheet" href="{% static 'polarmap.js-1.2.1/css/polarmap.css' %}" />
+        <script src="{% static 'polarmap.js-1.2.1/js/jquery.js' %}"></script>
+        <script src="{% static 'polarmap.js-1.2.1/js/leaflet.js' %}"></script>
+        <script src="{% static 'polarmap.js-1.2.1/js/proj4.js' %}"></script>
+        <script src="{% static 'polarmap.js-1.2.1/js/proj4leaflet.js' %}"></script>
+        <script src="{% static 'polarmap.js-1.2.1/dist/polarmap-src.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
+</head>
+<body onload="init(); draw_json()">
+    <div id= "mapPolar"></div>
+<script>
+  function init() {
+    var map = L.PolarMap.map('mapPolar',{
+        baseLayer: L.PolarMap.layer3573
+    })
+  }
+</script>
+<script src="{% static 'js/polarMap/mainPolarmap.js' %}"></script>
+</body>
+</html>

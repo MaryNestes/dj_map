@@ -7,4 +7,8 @@ function current_date(){
     var today = new Date();
     date.value = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' +
     String(today.getDate()).padStart(2, '0');
+    getDbAvailableDateTime(date.value);
+    date.addEventListener('change', function(){
+        getDbAvailableDateTime(date.value);
+    })
 }
